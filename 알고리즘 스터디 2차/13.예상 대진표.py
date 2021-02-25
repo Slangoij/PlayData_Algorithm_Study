@@ -2,8 +2,14 @@ import math
 
 
 def solution(n, a, b):
-    tmpbin = int(bin(a)[2:]) ^ int(bin(b)[2:])
+    cmp_bin = (a-1) ^ (b-1)
 
-    for i in range(int(math.log2(n)), 0, -1):
-        if tmpbin & (1 << i):
-            return i
+    for i in range(int(math.log2(n))-1, -1, -1):
+        if cmp_bin & (1 << i):
+            return i+1
+
+
+N = 16
+A = 1
+B = 8
+print(solution(N,A,B))
