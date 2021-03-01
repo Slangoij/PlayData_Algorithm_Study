@@ -2,33 +2,39 @@ def solution(skill, skill_trees):
     answer = 0
 
     # 3rd try:
-    idx_list = []
-
     for i in skill_trees:
-        idx_list.clear()
+        idx_list = []
         for j in skill:
             idx_list.append(i.find(j))
 
-        while True:
-
-
-
-
-        if not chk:
-            return len(skill_trees)
+        if sum(idx_list) == -len(idx_list):
+            answer += 1
         else:
-            while len(idx_list) > 1 and idx_list[-1] == -1:
-                del idx_list[-1]
             if idx_list[0] == -1:
-                continue
+                break;
+            else:
+                tmp = -1
+                chk = True
+                for j in idx_list:
+                    if tmp < j:
+                        tmp = j
+                    elif tmp > j:
+                        chk = False
+                        if j == -1:
+                            tmp_j = idx_list.index(j, 1)
+                            tmp_lst = idx_list[tmp_j:]
+                            if sum(tmp_lst) == -len(tmp_lst):
+                                answer += 1
+                        break
 
-            for k in range(len(idx_list)-1):
-                if idx_list[k] > idx_list[k+1]:
-                    break
-                if k == len(idx_list)-2:
-                    answer += 1
+        if chk:
+            answer += 1
 
     return answer
+
+
+
+
 
     # # 2nd try: 스킬이 전체 미사용일때, 가능한 걸 고려 못함.
     # if len(skill) == 1:
@@ -78,10 +84,10 @@ def solution(skill, skill_trees):
     # return answer
 
 
-# skill = 'CBD'
-# skill_trees = ["BACDE", "CBADF", "AECB", "BDA"]
+skill = 'CBD'
+skill_trees = ["BACDE", "CBADF", "AECB", "BDA"]
 
-skill = 'a'
-skill_trees = ["bacd"]
+# skill = 'a'
+# skill_trees = ["bacd"]
 
 print(solution(skill, skill_trees))
