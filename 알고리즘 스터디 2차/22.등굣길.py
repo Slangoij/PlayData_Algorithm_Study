@@ -1,4 +1,5 @@
 def solution(m, n, puddles):
+
     # 초기 맵 설정
     maps = [[0]*m for _ in range(n)]
     for x, y in puddles:
@@ -15,11 +16,16 @@ def solution(m, n, puddles):
                 break
             maps[0][i] = 1
 
+    1  1  1
+    1(i,j)0
+
     for i in range(1, n):
         for j in range(1, m):
             if maps[i][j] != -1:
+
                 if maps[i-1][j] != -1:
                     maps[i][j] += maps[i-1][j]
+
                 if maps[i][j-1] != -1:
                     maps[i][j] += maps[i][j-1]
 

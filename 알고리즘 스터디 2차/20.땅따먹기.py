@@ -13,7 +13,10 @@ def solution(land):
     return max(land[-1])
 
 
-landd = [[1,2,3,5],[5,6,7,8],[4,3,2,1]]
+landd = [
+    [1,2,3,5],
+    [5,6,7,8],
+    [4,3,2,1]]
 print(solution(landd))
 
 # # 1st try: 호출 스택 제한이 있어 런타임 에러가 걸린 듯하다. 재귀로 ㄴㄴ
