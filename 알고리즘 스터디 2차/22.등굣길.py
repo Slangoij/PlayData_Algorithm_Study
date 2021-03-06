@@ -16,9 +16,6 @@ def solution(m, n, puddles):
                 break
             maps[0][i] = 1
 
-    1  1  1
-    1(i,j)0
-
     for i in range(1, n):
         for j in range(1, m):
             if maps[i][j] != -1:
@@ -39,6 +36,6 @@ puddless = [[2,2]]
 
 print(solution(mm, nn, puddless))
 
-mm = 1
-nn = 5
-puddless = [[1,2]]
+# mm = 1
+# nn = 5
+# puddless = [[1,2]]
