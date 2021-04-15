@@ -2,6 +2,7 @@ def solution(goods):
     answer = 0
     goods.sort()
     
+    # 기존
     for go in goods:
         if go >= 50:
             answer += go - 10
